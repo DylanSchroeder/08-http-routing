@@ -33,26 +33,4 @@ describe('app', () => {
         expect(response.text).toMatch('</html>');
       });
   });
-
-  it('responds with JSON for /api/cowsay?text={message}', ()=>{
-    return request(app)
-      .get('/api/cowsay?text=neat')
-      .expect(200)
-      .expect('Content-Type', 'application/json')
-      .expect(response =>{
-        expect(response.body).toBeDefined();
-        expect(response.body.content).toMatch(' neat ');
-      });
-  });
-
-  it('responds with JSON for /api/cowsay?text={message}', ()=> {
-    return request(app)
-      .post('/api/cowsay?text=neat')
-      .expect(200)
-      .expect('Content-Type', 'application/json')
-      .expect(response =>{
-        expect(response.body).toBeDefined();
-        expect(response.body.content).toMatch(' neat ');
-      });
-  });
 });
